@@ -8,7 +8,9 @@ public class CustomerGroup {
     
     //Method
     public void CustomerGroup(int id, int numberInGroup, int arrivalTime ){
-        //to be added
+        this.id=id;
+        this.numberInGroup = numberInGroup;
+        this.arrivalTime = arrivalTime;
     }
     
     
@@ -26,7 +28,7 @@ public class CustomerGroup {
     }
     
     //Initializing toString
-    
+    //Yet to be initialized
     
     
     
