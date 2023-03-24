@@ -10,6 +10,11 @@ public abstract class Event {
     private int time;
     
     
+    //Created constructor
+    public Event (int time){
+        this.time=time;
+    } 
+    
     //Creating new object
     ShopModel shopModel = new ShopModel();
     IScheduler scheduler = new IScheduler();
