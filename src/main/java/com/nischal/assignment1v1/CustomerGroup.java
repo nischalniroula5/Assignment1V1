@@ -1,13 +1,40 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.nischal.assignment1v1;
 
-/**
- *
- * @author nischalniroula
- */
 public class CustomerGroup {
+    private int id;
+    private int numberInGroup;
+    private int arrivalTime;
+    
+    //Method
+    public void CustomerGroup(int id, int numberInGroup, int arrivalTime ){
+        //to be added
+    }
+    
+    
+    //Initializing Getters 
+    public int getID(int id){
+        return id;
+    }
+    
+    public int getNumberInGroup (int numberInGroup){
+        return numberInGroup;
+    }
+    
+    public int getArrivalTime (int arrivalTime){
+        return arrivalTime;
+    }
+    
+    //Initializing toString
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
