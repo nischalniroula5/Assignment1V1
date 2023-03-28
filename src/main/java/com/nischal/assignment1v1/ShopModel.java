@@ -30,8 +30,8 @@ public class ShopModel {
     }
 
     public void showGroups(){   
-        System.out.println("This is ShowGroup Method");
-        
+        //System.out.println("This is ShowGroup Method");
+        groups.toString();
     }
     
     public void showLog(){
