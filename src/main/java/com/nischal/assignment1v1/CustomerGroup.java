@@ -6,8 +6,8 @@ public class CustomerGroup {
     private int numberInGroup;
     private int arrivalTime;
     
-    //Method
-    public void CustomerGroup(int id, int numberInGroup, int arrivalTime ){
+    
+    public CustomerGroup(int id, int numberInGroup, int arrivalTime ){
         this.id=id;
         this.numberInGroup = numberInGroup;
         this.arrivalTime = arrivalTime;
@@ -27,16 +27,10 @@ public class CustomerGroup {
         return arrivalTime;
     }
     
-    //Initializing toString
-    //Yet to be initialized
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    @Override
+    public String toString() {
+        return "Customer group " + id + " with " + numberInGroup + " people arrived at time " + arrivalTime;
+    }
+
 }
