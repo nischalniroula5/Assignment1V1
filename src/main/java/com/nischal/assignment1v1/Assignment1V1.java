@@ -22,6 +22,14 @@ public class Assignment1V1 {
        //Invoking the simulator initializing method and passing the ArrayList to the simulator
        sim.initialize(eventQueue);
        
+       
+       
+       //Invoking the simulator's run method
+       System.out.println("\nthe following groups are in the history/log:");
+       System.out.println("===================================");
+       int numOfTimeSteps = 20;
+       sim.run(numOfTimeSteps);
+       
        // Display simulation trace
        System.out.println("Simulation Trace:");
        System.out.println("==============");
@@ -31,12 +39,6 @@ public class Assignment1V1 {
        System.out.println("\nthe following groups are in the shop:");
        System.out.println("==============================");
        model.showLog();
-       
-       //Invoking the simulator's run method
-       System.out.println("\nthe following groups are in the history/log:");
-       System.out.println("===================================");
-       int numOfTimeSteps = 20;
-       sim.run(numOfTimeSteps);
        
       
         
