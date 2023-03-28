@@ -30,11 +30,11 @@ public class ShopModel {
     }
 
     public void showGroups(){
-        
+        System.out.println("This is ShowGroup Method");
     }
     
     public void showLog(){
-        
+        System.out.println("This is ShowLog Method");
     }
     
     //Getter for groups in shop
