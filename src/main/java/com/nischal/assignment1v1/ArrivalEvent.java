@@ -13,11 +13,13 @@ public class ArrivalEvent extends Event{
     //Process Method 
    @Override
     public void process(ShopModel sm, IScheduler s) {
+        //Initiating group size as 2 as per stated in the question
         int groupSize = 2;
         int groupId = sm.getNextId();
         CustomerGroup group = new CustomerGroup(groupId, groupSize, getTime());
         sm.logGroup(group);
         sm.addGroup(group);
+        sm.showGroups();
         System.out.println(group.toString());
         s.schedule(new ArrivalEvent(getTime() + 2));
     }

@@ -29,8 +29,8 @@ public class ShopModel {
         history.add(group);
     }
 
-    public void showGroups(){
-        //System.out.println("This is ShowGroup Method");
+    public void showGroups(){   
+        System.out.println("This is ShowGroup Method");
         
     }
     
