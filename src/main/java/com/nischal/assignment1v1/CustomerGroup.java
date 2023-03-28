@@ -15,15 +15,15 @@ public class CustomerGroup {
     
     
     //Initializing Getters 
-    public int getID(int id){
+    public int getID(){
         return id;
     }
     
-    public int getNumberInGroup (int numberInGroup){
+    public int getNumberInGroup (){
         return numberInGroup;
     }
     
-    public int getArrivalTime (int arrivalTime){
+    public int getArrivalTime (){
         return arrivalTime;
     }
     

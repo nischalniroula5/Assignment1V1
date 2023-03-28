@@ -29,17 +29,21 @@ public class ShopModel {
         history.add(group);
     }
 
-    public void showGroups(){   
-        //System.out.println("This is ShowGroup Method");
-    }
-    
-    public void showLog(){
-        System.out.println("This is ShowLog Method");
-    }
-    
     //Getter for groups in shop
     public int getNumGroups() {
         return numGroups;
     }
 
+    public void showGroups(){
+        for (CustomerGroup group : groups) {
+        System.out.println("Group " + group.getID() + " (" + group.getNumberInGroup() + " people) arrived at t = " + group.getArrivalTime());
+    }
+    }
+    
+    public void showLog(){
+        for (CustomerGroup group : history) {
+        System.out.println("Group " + group.getID() + " (" + group.getNumberInGroup() + " people) arrived at t = " + group.getArrivalTime());
+    }
+    }
+   
 }
