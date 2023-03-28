@@ -30,8 +30,8 @@ public class CustomerGroup {
     
     @Override
     public String toString() {
-        //have to add title and seperator
-        return "Customer group " + id + " with " + numberInGroup + " people arrived at time " + arrivalTime;
+        
+        return "Group " + id + "(" + numberInGroup +" people)"+" arrived at t= " + arrivalTime;
     }
 
 }
