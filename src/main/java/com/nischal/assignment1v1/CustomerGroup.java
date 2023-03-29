@@ -31,7 +31,7 @@ public class CustomerGroup {
     @Override
     public String toString() {
         
-        return "Group " + id + "(" + numberInGroup +" people)"+" arrived at t= " + arrivalTime;
+        return "t = " +getArrivalTime()+ ": Group "+getID()+" <"+getNumberInGroup()+"people> arrived";
     }
 
 }

@@ -24,19 +24,19 @@ public class Assignment1V1 {
        
        
        
-       //Invoking the simulator's run method
-       System.out.println("\nthe following groups are in the history/log:");
-       System.out.println("===================================");
+       //Displaying the Simulation Trace
+       System.out.println("\nSimulation Trace:");
+       System.out.println("==============");
        int numOfTimeSteps = 20;
        sim.run(numOfTimeSteps);
        
-       // Display simulation trace
-       System.out.println("Simulation Trace:");
-       System.out.println("==============");
+       // Displaying the groups currently in the shop
+       System.out.println("\nthe following groups are in the shop:");
+       System.out.println("==============================");
        model.showGroups();
        
        // Display groups in shop
-       System.out.println("\nthe following groups are in the shop:");
+       System.out.println("\nthe following groups are in the history/log:");
        System.out.println("==============================");
        model.showLog();
        

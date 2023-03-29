@@ -34,12 +34,15 @@ public class ShopModel {
         return numGroups;
     }
 
+    //ShowGroups method to show Simulation Trace
     public void showGroups(){
         for (CustomerGroup group : groups) {
+        //System.out.println("Group " + group.getID() + " (" + group.getNumberInGroup() + " people) arrived at t = " + group.getArrivalTime());
         System.out.println("Group " + group.getID() + " (" + group.getNumberInGroup() + " people) arrived at t = " + group.getArrivalTime());
     }
     }
     
+    //ShowLog method to show 
     public void showLog(){
         for (CustomerGroup group : history) {
         System.out.println("Group " + group.getID() + " (" + group.getNumberInGroup() + " people) arrived at t = " + group.getArrivalTime());
