@@ -30,7 +30,6 @@ public class CustomerGroup {
     
     @Override
     public String toString() {
-        
         return "t = " +getArrivalTime()+ ": Group "+getID()+" <"+getNumberInGroup()+"people> arrived";
     }
 

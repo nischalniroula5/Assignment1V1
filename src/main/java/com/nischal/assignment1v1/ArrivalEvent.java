@@ -11,7 +11,7 @@ public class ArrivalEvent extends Event{
     //Process Method 
    @Override
     public void process(ShopModel sm, IScheduler s) {
-        //Initiating group size as 2 as per stated
+        //Initiating group size as 2 as per stated in assignment specification
         int groupSize = 2;
         int groupId = sm.getNextId();
         CustomerGroup group = new CustomerGroup(groupId, groupSize, getTime());

@@ -9,7 +9,6 @@ public class ShopModel {
     private int numGroups = 0;
     
     //Initializing arraylist fpr groups and history
-    
     private ArrayList<CustomerGroup> groups = new ArrayList<>();
     private ArrayList<CustomerGroup> history = new ArrayList<>();
     
@@ -24,7 +23,6 @@ public class ShopModel {
         groups.add(group);
         numGroups++;
     }
-
     public void logGroup(CustomerGroup group) {
         history.add(group);
     }

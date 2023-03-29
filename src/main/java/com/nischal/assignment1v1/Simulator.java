@@ -20,7 +20,7 @@ public class Simulator implements IScheduler {
         this.events = events;
     }
 
-    //The run method
+    //The run method copied from the assignment specification
     public void run(int stopTime) {     
         if ((events == null)|| events.isEmpty() )
            return;
