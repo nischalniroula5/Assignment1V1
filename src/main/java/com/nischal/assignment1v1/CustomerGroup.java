@@ -30,7 +30,7 @@ public class CustomerGroup {
     
     @Override
     public String toString() {
-        return "t = " +getArrivalTime()+ ": Group "+getID()+" <"+getNumberInGroup()+"people> arrived";
+        return String.format("t = %d: Group %d <%d people> arrived", getArrivalTime(), getID(), getNumberInGroup());
     }
 
 }
