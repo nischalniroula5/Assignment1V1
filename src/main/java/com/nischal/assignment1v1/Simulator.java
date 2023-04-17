@@ -23,10 +23,14 @@ public class Simulator implements IScheduler {
     //The run method copied from the assignment specification
     public void run(int stopTime) {     
         if ((events == null)|| events.isEmpty() )
+        {
            return;
+        }
         
         Event e = events.remove(0);
         clock = e.getTime();
+        
+        
         // events queue will never become empty as after the first event is 
         // added, every arrival event will generate a new arrival event 
         // (which may be greater than the stop time)

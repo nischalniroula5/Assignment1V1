@@ -17,7 +17,8 @@ public class ArrivalEvent extends Event{
         CustomerGroup group = new CustomerGroup(groupId, groupSize, getTime());
         sm.logGroup(group);
         sm.addGroup(group);
+        CollectItemsEvent collectItemsEvent = new CollectItemsEvent(getTime()+6, group);
+        s.schedule(collectItemsEvent);
         System.out.println(group.toString());
-        s.schedule(new ArrivalEvent(getTime() + 2));
     }
 }

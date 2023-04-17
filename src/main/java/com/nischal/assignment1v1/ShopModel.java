@@ -17,14 +17,18 @@ public class ShopModel {
         return nextIdentifier++;
     }
     
+    //Creating collectItems method 
+    public void collectItems(int time,  CustomerGroup g){
+        System.out.println(String.format("t = %d: Purchases collected by Group %d", time, g.getID()));
+    }
     
     //Methods for addGroup and logGroup
-    public void addGroup(CustomerGroup group) {
-        groups.add(group);
+    public void addGroup(CustomerGroup g) {
+        groups.add(g);
         numGroups++;
     }
-    public void logGroup(CustomerGroup group) {
-        history.add(group);
+    public void logGroup(CustomerGroup g) {
+        history.add(g);
     }
 
     //Getter for groups in shop
