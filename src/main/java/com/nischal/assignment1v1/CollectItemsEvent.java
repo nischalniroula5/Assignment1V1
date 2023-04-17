@@ -17,5 +17,7 @@ public class CollectItemsEvent extends Event {
     @Override
     public void process(ShopModel sm, IScheduler s) {
         sm.collectItems(getTime(), group);
+        PayEvent payEvent = new PayEvent(getTime() + 4, group);
+        s.schedule(payEvent);
     }
 }

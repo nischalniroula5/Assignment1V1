@@ -35,6 +35,18 @@ public class ShopModel {
     public int getNumGroups() {
         return numGroups;
     }
+    
+    //Instantiated Pay Method
+    public void pay(int time, CustomerGroup group) {
+    System.out.println("t = " + time + ": Group " + group.getID() + " customer has paid");
+}
+    
+    //Instantiated Leave Method
+    public void leave(int time, CustomerGroup group) {
+    System.out.println("t = " + time + ": Group " + group.getID() + " leaves the shop");
+    groups.remove(group);
+    numGroups--;
+}
 
     //ShowGroups method to show Simulation Trace
     public void showGroups() {
