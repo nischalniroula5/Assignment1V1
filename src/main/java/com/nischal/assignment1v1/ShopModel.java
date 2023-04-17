@@ -5,18 +5,27 @@ import java.util.ArrayList;
 
 public class ShopModel {
     //Initializing instances 
-    private int nextIdentifier = 0;
+    private int nextId = 0;
     private int numGroups = 0;
-    
+    private int max;
+    private int spaceAvailable;
+
     //Initializing arraylist fpr groups and history
     private ArrayList<CustomerGroup> groups = new ArrayList<>();
     private ArrayList<CustomerGroup> history = new ArrayList<>();
     
-    //Assigning and incrementing theidentifier
-    public int getNextId() {
-        return nextIdentifier++;
+    //Constructor for shopmodel
+    public ShopModel(int max) {
+        this.spaceAvailable = max;
     }
     
+    
+    
+    //Assigning and incrementing theidentifier
+    public int getNextId() {
+        return nextId++;
+    }
+     
     //Creating collectItems method 
     public void collectItems(int time,  CustomerGroup g){
         System.out.println(String.format("t = %d: Purchases collected by Group %d", time, g.getID()));
@@ -24,8 +33,15 @@ public class ShopModel {
     
     //Methods for addGroup and logGroup
     public void addGroup(CustomerGroup g) {
-        groups.add(g);
-        numGroups++;
+        if (g.getNumberInGroup() <= spaceAvailable) {
+            groups.add(g);
+            numGroups++;
+            spaceAvailable -= g.getNumberInGroup();
+           
+        } else {
+            System.out.println(String.format("Group %d (%d people) arrives at t = %d but there is no room in the shop.",
+                    g.getID(), g.getNumberInGroup(), g.getArrivalTime()));
+        }
     }
     public void logGroup(CustomerGroup g) {
         history.add(g);
@@ -46,6 +62,7 @@ public class ShopModel {
     System.out.println("t = " + time + ": Group " + group.getID() + " leaves the shop");
     groups.remove(group);
     numGroups--;
+    spaceAvailable++;
 }
 
     //ShowGroups method to show Simulation Trace

@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 public class Assignment1V1 {
 
+
     //The Main method
     public static void main(String[] args) {
         
-       //The instance of ShopModel
-       ShopModel model = new ShopModel();
+       //The instance of ShopModel and passing 8 as maximum number of parameters
+       ShopModel model = new ShopModel(8);
         
        //The instance of the simulator and passing it a reference of new instance of ShopModel
        Simulator sim = new Simulator(model);
