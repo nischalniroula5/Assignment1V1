@@ -22,14 +22,18 @@ public class ArrivalEvent extends Event{
              sm.addGroup(group);
              CollectItemsEvent collectItemsEvent = new CollectItemsEvent(getTime()+6, group);
              s.schedule(collectItemsEvent);
+             ArrivalEvent nextArrival = new ArrivalEvent(getTime());
+            s.schedule(nextArrival);
+        
         }
         else{
              System.out.println("t = " + group.getArrivalTime() + " : Group " + group.getID() + " leaves as there is insufficient room for the group");
-            sm.addLostCustomers(group.getNumberInGroup());
+            sm.addLostBusiness(group.getNumberInGroup());
+            ArrivalEvent nextArrival = new ArrivalEvent(getTime());
+            s.schedule(nextArrival);
+        
         }
             
-       ArrivalEvent nextArrival = new ArrivalEvent(getTime());
-        s.schedule(nextArrival);
-        
+       
     }
 }

@@ -1,6 +1,6 @@
 
 package com.nischal.assignment1v1;
-
+import java.util.Formatter;
 import java.util.ArrayList;
 
 public class ShopModel {
@@ -8,10 +8,9 @@ public class ShopModel {
     private int nextId = 0;
     private int numGroups = 0;
     private int max;
-    private int spaceAvailable;
-    private int lostCustomers = 0;
-    private int numServed =0;
-    private int lostBusiness = 0;
+    private int spaceAvailable =max;
+    private int lostBusiness=0;
+    private int numServed=0 ;
 
     //Initializing arraylist fpr groups and history
     private ArrayList<CustomerGroup> groups = new ArrayList<>();
@@ -20,7 +19,6 @@ public class ShopModel {
     //Constructor for shopmodel
     public ShopModel(int max) {
         this.max=max;
-        this.spaceAvailable = max;
     }
     
     public int getSpaceAvailable(){
@@ -48,9 +46,13 @@ public class ShopModel {
     public void logGroup(CustomerGroup g) {
         history.add(g);
     }
+    
+    protected void addLostBusiness(int numCustomers){
+        lostBusiness +=numCustomers;
+    }
 
-    public void addLostCustomers(int numCustomers){
-        lostCustomers +=numCustomers;
+    public int getLostBusiness(){
+        return lostBusiness;
     }
     //Getter for groups in shop
     public int getNumGroups() {
@@ -61,9 +63,6 @@ public class ShopModel {
         return numServed;
     }
     
-    public int getLostBusiness(){
-        return lostBusiness;
-    }
     
     
     public boolean canEnter(int time, CustomerGroup group){
@@ -84,21 +83,21 @@ public class ShopModel {
     spaceAvailable += group.getNumberInGroup();
 }
 
-    //ShowGroups method to show Simulation Trace
-    public void showGroups() {
-    for (CustomerGroup group : groups) {
-        String output = String.format("Group %d (%d people) arrived at t = %d",
-                                      group.getID(), group.getNumberInGroup(), group.getArrivalTime());
-        System.out.println(output);
+    //ShowGroups method to show 
+    public void showGroups(Formatter formatter) {
+        formatter.format("\nThe following groups are in the shop:%n");
+        formatter.format("==============================%n");
+        for (CustomerGroup group : groups) {
+        formatter.format("Group %d (%d people) arrived at t = %d%n", group.getID(), group.getNumberInGroup(), group.getArrivalTime());
     }
 }
     
     //ShowLog method to show 
-    public void showLog(){
+    public void showLog(Formatter formatter){
+        formatter.format("\nThe following groups are in the history/log:%n");
+        formatter.format("============================================%n");
         for (CustomerGroup group : history) {
-         String output = String.format("Group %d (%d people) arrived at t = %d",
-                                      group.getID(), group.getNumberInGroup(), group.getArrivalTime());
-        System.out.println(output);
+         formatter.format("Group %d (%d people) arrived at t = %d%n", group.getID(), group.getNumberInGroup(), group.getArrivalTime());
     }
     }
    
