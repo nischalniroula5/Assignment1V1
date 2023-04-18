@@ -20,10 +20,6 @@ public class ShopModel {
         this.spaceAvailable=max;
     }
     
-    public int getSpaceAvailable(){
-        return spaceAvailable;
-    }
-    
     
     
     //Assigning and incrementing theidentifier

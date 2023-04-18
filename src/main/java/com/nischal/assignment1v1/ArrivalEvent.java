@@ -2,6 +2,10 @@
 package com.nischal.assignment1v1;
 
 public class ArrivalEvent extends Event{
+    private int groupLowerBound=1;
+    private int groupGeneratorBound=3;
+    private int collectTimeLowerBound =3;
+    private int collectTimeGeneratorBound =8;
     
     public ArrivalEvent(int time) {
         super(time);
@@ -11,8 +15,8 @@ public class ArrivalEvent extends Event{
     //Process Method 
    @Override
     public void process(ShopModel sm, IScheduler s) {
-        //Initiating group size as 2 as per stated in assignment specification
-        int groupSize = 2;
+        
+        int groupSize = getGenerator().nextInt(groupGeneratorBound) + groupLowerBound; 
         int groupId = sm.getNextId();
         CustomerGroup group = new CustomerGroup(groupId, groupSize, getTime());
         sm.logGroup(group);
@@ -22,7 +26,7 @@ public class ArrivalEvent extends Event{
              System.out.println("t = " + group.getArrivalTime() + " : Group " + group.getID() + " (" + group.getNumberInGroup() + ") enter the shop");
              //sm.logGroup(group);
              sm.addGroup(group);
-             CollectItemsEvent collectItemsEvent = new CollectItemsEvent(getTime()+6, group);
+             CollectItemsEvent collectItemsEvent = new CollectItemsEvent(getGenerator().nextInt(collectTimeGeneratorBound) + collectTimeLowerBound, group);
              s.schedule(collectItemsEvent);
         
         }
