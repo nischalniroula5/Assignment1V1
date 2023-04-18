@@ -6,7 +6,6 @@ import java.io.*;
 
 public class Assignment1V1 {
 
-    int max =8;
     //The Main method
     public static void main(String[] args) throws IOException {
         
@@ -70,7 +69,7 @@ public class Assignment1V1 {
         }
         */
 
-        Formatter formatter = null;
+        /*Formatter formatter = null;
         try{
         formatter = new Formatter(new File("statistics.txt"));
         // Write simulation statistics to the file
@@ -85,7 +84,21 @@ public class Assignment1V1 {
         catch (FileNotFoundException e) {
         System.out.println("Error! File not found");
         }
+        */
         
+        try (Formatter formatter = new Formatter("statistics.txt")){
+            // Write simulation statistics to the file
+        formatter.format("Statistics%n==========%n");
+        formatter.format("The number of people served = %d%n", model.getNumServed());
+        formatter.format("The lost business = %d people%n%n", model.getLostBusiness());
+        
+        model.showGroups(formatter); // pass the formatter object to the showGroups method
+        model.showLog(formatter); // pass the formatter object to the showLog method
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+            System.exit(1);
+        }
         
     }
     

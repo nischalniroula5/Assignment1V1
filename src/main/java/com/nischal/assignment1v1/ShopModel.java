@@ -7,8 +7,7 @@ public class ShopModel {
     //Initializing instances 
     private int nextId = 0;
     private int numGroups = 0;
-    private int max;
-    private int spaceAvailable =max;
+    private int spaceAvailable;
     private int lostBusiness=0;
     private int numServed=0 ;
 
@@ -18,7 +17,7 @@ public class ShopModel {
     
     //Constructor for shopmodel
     public ShopModel(int max) {
-        this.max=max;
+        this.spaceAvailable=max;
     }
     
     public int getSpaceAvailable(){
