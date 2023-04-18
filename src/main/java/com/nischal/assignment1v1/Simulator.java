@@ -23,7 +23,8 @@ public class Simulator implements IScheduler {
     //The run method copied from the assignment specification
 public void run(int stopTime) {     
         if ((events == null)|| events.isEmpty() )
-           return;  
+           return;
+        
         Event e = events.remove(0);
         clock = e.getTime();
         // events queue will never become empty as after the first event is 
@@ -33,13 +34,11 @@ public void run(int stopTime) {
             e.process(model, this);// the this argument means that we are   
                                    // passing a reference to this simulator 
                                    // object to the event’s process method.
-            if (events.isEmpty()) { // check if events is empty before removing an event
-            break;
-        }
             e = events.remove(0);
             clock = e.getTime();
         }
     }
+
 
     
     @Override

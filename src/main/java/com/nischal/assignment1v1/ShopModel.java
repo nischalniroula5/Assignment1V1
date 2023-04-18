@@ -9,6 +9,9 @@ public class ShopModel {
     private int numGroups = 0;
     private int max;
     private int spaceAvailable;
+    private int lostCustomers = 0;
+    private int numServed =0;
+    private int lostBusiness = 0;
 
     //Initializing arraylist fpr groups and history
     private ArrayList<CustomerGroup> groups = new ArrayList<>();
@@ -16,7 +19,12 @@ public class ShopModel {
     
     //Constructor for shopmodel
     public ShopModel(int max) {
+        this.max=max;
         this.spaceAvailable = max;
+    }
+    
+    public int getSpaceAvailable(){
+        return spaceAvailable;
     }
     
     
@@ -33,28 +41,39 @@ public class ShopModel {
     
     //Methods for addGroup and logGroup
     public void addGroup(CustomerGroup g) {
-        if (g.getNumberInGroup() <= spaceAvailable) {
             groups.add(g);
             numGroups++;
             spaceAvailable -= g.getNumberInGroup();
-           
-        } else {
-            System.out.println(String.format("Group %d (%d people) arrives at t = %d but there is no room in the shop.",
-                    g.getID(), g.getNumberInGroup(), g.getArrivalTime()));
-        }
     }
     public void logGroup(CustomerGroup g) {
         history.add(g);
     }
 
+    public void addLostCustomers(int numCustomers){
+        lostCustomers +=numCustomers;
+    }
     //Getter for groups in shop
     public int getNumGroups() {
         return numGroups;
     }
     
+    public int getNumServed(){
+        return numServed;
+    }
+    
+    public int getLostBusiness(){
+        return lostBusiness;
+    }
+    
+    
+    public boolean canEnter(int time, CustomerGroup group){
+        return group.getNumberInGroup() <= spaceAvailable;
+    }
+    
     //Instantiated Pay Method
     public void pay(int time, CustomerGroup group) {
     System.out.println("t = " + time + ": Group " + group.getID() + " customer has paid");
+    numServed += group.getNumberInGroup();
 }
     
     //Instantiated Leave Method
@@ -62,7 +81,7 @@ public class ShopModel {
     System.out.println("t = " + time + ": Group " + group.getID() + " leaves the shop");
     groups.remove(group);
     numGroups--;
-    spaceAvailable++;
+    spaceAvailable += group.getNumberInGroup();
 }
 
     //ShowGroups method to show Simulation Trace

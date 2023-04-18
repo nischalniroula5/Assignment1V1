@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Assignment1V1 {
 
-
+    //private int max =8;
     //The Main method
     public static void main(String[] args) {
         
@@ -24,6 +24,7 @@ public class Assignment1V1 {
        sim.initialize(eventQueue);
        
        
+       //Displaying number of 
        
        //Displaying the Simulation Trace
        System.out.println("\nSimulation Trace:");
@@ -40,5 +41,11 @@ public class Assignment1V1 {
        System.out.println("\nthe following groups are in the history/log:");
        System.out.println("==============================");
        model.showLog();
+       
+       //Displaying number of Customer Served
+        System.out.println("\n Number of Customers Served: " + model.getNumServed());
+        
+        //Displaying number of Lost Business
+        System.out.println("\n Number of Lost Business: " + model.getLostBusiness());
     }
 }
