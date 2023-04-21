@@ -20,10 +20,10 @@ public class ArrivalEvent extends Event{
         int groupId = sm.getNextId();
         CustomerGroup group = new CustomerGroup(groupId, groupSize, getTime());
         sm.logGroup(group);
-        System.out.println("t = " + group.getArrivalTime() + " : Group " + group.getID() + " (" + group.getNumberInGroup() + ") arrived at the shop");
+        System.out.println(String.format("t = %d: Group %d <%d people> arrived", group.getArrivalTime(), group.getID(), group.getNumberInGroup()));
         
         if(sm.canEnter(group.getArrivalTime(), group)){
-             System.out.println("t = " + group.getArrivalTime() + " : Group " + group.getID() + " (" + group.getNumberInGroup() + ") enter the shop");
+             System.out.println(String.format("t = %d: Group %d <%d people> entered", group.getArrivalTime(), group.getID(), group.getNumberInGroup()));
              sm.addGroup(group);
              
              CollectItemsEvent collectItemsEvent = new CollectItemsEvent(group.getArrivalTime()+getGenerator().nextInt(collectTimeGeneratorBound) + collectTimeLowerBound, group);
@@ -32,7 +32,7 @@ public class ArrivalEvent extends Event{
         
         }
         else{
-             System.out.println("t = " + group.getArrivalTime() + " : Group " + group.getID() + " leaves as there is insufficient room for the group");
+             System.out.println(String.format("t = %d : Group %d leaves as there is insufficient room for the group", group.getArrivalTime(), group.getID()));
             sm.addLostBusiness(group.getNumberInGroup());
 
         }

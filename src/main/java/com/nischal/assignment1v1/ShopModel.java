@@ -66,13 +66,13 @@ public class ShopModel {
     
     //Instantiated Pay Method
     public void pay(int time, CustomerGroup group) {
-    System.out.println("t = " + time + ": Group " + group.getID() + " customer has paid");
+    System.out.println(String.format("t = %d: Group %d customer has paid", time, group.getID()));
     numServed += group.getNumberInGroup();
 }
     
     //Instantiated Leave Method
     public void leave(int time, CustomerGroup group) {
-    System.out.println("t = " + time + ": Group " + group.getID() + " leaves the shop");
+    System.out.println(String.format("t = %d: Group %d leaves", time, group.getID()));
     groups.remove(group);
     numGroups--;
     spaceAvailable += group.getNumberInGroup();
