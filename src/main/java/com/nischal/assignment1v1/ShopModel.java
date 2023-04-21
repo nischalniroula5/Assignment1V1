@@ -180,7 +180,7 @@ public class ShopModel {
     */
     
     public void leave(int time, CustomerGroup group) {
-    System.out.println("t = " + time + ": Group " + group.getID() + " leaves the shop");
+    System.out.println(String.format("t = %d: Group %d leaves", time, group.getID()));
     
     //Removes the group from "groups" arraylist
     groups.remove(group);
