@@ -4,42 +4,61 @@ import java.util.ArrayList;
 import java.util.Formatter;
 import java.io.*;
 
-public class Assignment1V1 {
+/**
+ * 
+ * @author nischalniroula
+ * 
+ *This class contains the main method that runs the simulation.
+ * 
+*/
 
-    //The Main method
+public class Assignment1V1 {
+    /**
+     * 
+     * The main method that initializes the simulation and runs it for a specified number of time steps.For the simulation, we choose 20 time steps as per assignment specifications.
+     * For the simulation, we choose 8 as the maximum space available in a shop at a time.
+     * 
+     * @param args: Default array of command line arguments
+     * @throws java.io.IOException
+     * @throws IOException: If there is an error while writing to the output file.
+     * 
+ */
+
     public static void main(String[] args) throws IOException {
         
-       //The instance of ShopModel and passing 8 as maximum number of parameters
+       // Create an instance of ShopModel with maximum capacity of 8 (as per assignment specification)
        ShopModel model = new ShopModel(8);
         
-       //The instance of the simulator and passing it a reference of new instance of ShopModel
+       // Create an instance of Simulator and pass a reference to the ShopModel instance
        Simulator sim = new Simulator(model);
         
-       //Creating a ArrayList of Events
+       // Create an ArrayList to hold the events
        ArrayList<Event> eventQueue = new ArrayList<>();
         
-        //creating and adding the ArrivalEvent to event queue 
+       // Add the first ArrivalEvent to the event queue with time 0
        eventQueue.add(new ArrivalEvent(0));
        
-       //Invoking the simulator initializing method and passing the ArrayList to the simulator
+       // Initialize the simulator with the event queue
        sim.initialize(eventQueue);
        
        
-       //Displaying the Simulation Trace
+       // Display and run the simulation for 20 time steps (as per assignment specification)
        System.out.println("\nSimulation Trace:");
        System.out.println("==============");
        int numOfTimeSteps = 20;
        sim.run(numOfTimeSteps);
     
-        
-        try (Formatter formatter = new Formatter("statistics.txt")){
-            // Write simulation statistics to the file
-        formatter.format("Statistics%n==========%n");
-        formatter.format("The number of people served = %d%n", model.getNumServed());
-        formatter.format("The lost business = %d people%n%n", model.getLostBusiness());
-        
-        model.showGroups(formatter); // pass the formatter object to the showGroups method
-        model.showLog(formatter); // pass the formatter object to the showLog method
+       // Write the simulation statistics to a file named "statistics.txt" 
+       try (Formatter formatter = new Formatter("statistics.txt")){
+       formatter.format("Statistics%n==========%n");
+       formatter.format("The number of people served = %d%n", model.getNumServed());
+       formatter.format("The lost business = %d people%n%n", model.getLostBusiness());
+       
+       // Pass the formatter object to the ShopModel's showGroups method to display the customer groups
+       model.showGroups(formatter); 
+       
+       // Pass the formatter object to the ShopModel's showlog method to display the log/history
+       model.showLog(formatter); 
         }
         catch(FileNotFoundException e){
             System.exit(1);
