@@ -33,8 +33,7 @@ public class ArrivalEvent extends Event{
         }
         else{
              System.out.println(String.format("t = %d : Group %d leaves as there is insufficient room for the group", group.getArrivalTime(), group.getID()));
-            sm.addLostBusiness(group.getNumberInGroup());
-
+            
         }
         ArrivalEvent nextArrival = new ArrivalEvent(getTime()+2);
          s.schedule(nextArrival);
