@@ -24,10 +24,11 @@ public class ArrivalEvent extends Event{
         
         if(sm.canEnter(group.getArrivalTime(), group)){
              System.out.println("t = " + group.getArrivalTime() + " : Group " + group.getID() + " (" + group.getNumberInGroup() + ") enter the shop");
-             sm.logGroup(group);
              sm.addGroup(group);
+             if(group.getArrivalTime()!=20){
              CollectItemsEvent collectItemsEvent = new CollectItemsEvent(getGenerator().nextInt(collectTimeGeneratorBound) + collectTimeLowerBound, group);
              s.schedule(collectItemsEvent);
+             }
         
         }
         else{
