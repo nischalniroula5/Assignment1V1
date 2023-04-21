@@ -42,7 +42,6 @@ public class Assignment1V1 {
         model.showLog(formatter); // pass the formatter object to the showLog method
         }
         catch(FileNotFoundException e){
-            e.printStackTrace();
             System.exit(1);
         }
         
