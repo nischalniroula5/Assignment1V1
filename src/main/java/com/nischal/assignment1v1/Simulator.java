@@ -70,7 +70,6 @@ public class Simulator implements IScheduler {
      * 
      * @param e: The event to be scheduled.
      */
-    
     @Override
     public void schedule(Event e) {
         int i=0;
