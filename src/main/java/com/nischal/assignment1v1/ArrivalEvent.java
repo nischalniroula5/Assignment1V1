@@ -41,8 +41,7 @@ public class ArrivalEvent extends Event{
     public void process(ShopModel sm, IScheduler s) {
         //Initiating group size as 2 as per stated in assignment specification
         int groupSize = 2;
-        int groupId = sm.getNextId();
-        CustomerGroup group = new CustomerGroup(groupId, groupSize, getTime());
+        CustomerGroup group = new CustomerGroup(sm.getNextId(), groupSize, getTime());
         
         //Log the group and print the arrival message
         sm.logGroup(group);
@@ -64,8 +63,8 @@ public class ArrivalEvent extends Event{
         }
         
         //Schedules the ArrivalEvent for next arrival time
-        ArrivalEvent nextArrival = new ArrivalEvent(getTime()+2);
-         s.schedule(nextArrival);
+        ArrivalEvent nextArrivalEvent = new ArrivalEvent(getTime()+2);
+         s.schedule(nextArrivalEvent);
             
        
     }

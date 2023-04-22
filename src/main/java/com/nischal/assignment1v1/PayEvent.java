@@ -40,6 +40,7 @@ public class PayEvent extends Event {
         sm.pay(getTime(), group);
         
         // Schedule a LeaveEvent after one time unit
-        s.schedule(new LeaveEvent(getTime() + 1, group));
+        LeaveEvent nextLeaveEvent = new LeaveEvent(getTime()+1,group);
+        s.schedule(nextLeaveEvent);
     }
 }
