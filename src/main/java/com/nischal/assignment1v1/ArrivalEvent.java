@@ -52,7 +52,7 @@ public class ArrivalEvent extends Event{
              System.out.println(String.format("t = %d: Group %d <%d people> entered", group.getArrivalTime(), group.getID(), group.getNumberInGroup()));
              sm.addGroup(group);
              
-             CollectItemsEvent collectItemsEvent = new CollectItemsEvent(getTime()+6, group);
+             CollectItemsEvent collectItemsEvent = new CollectItemsEvent(group.getArrivalTime()+6, group);
              s.schedule(collectItemsEvent);
         
         }
