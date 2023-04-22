@@ -48,8 +48,7 @@ public class ArrivalEvent extends Event{
         
         //Generate a new group
         int groupSize = getGenerator().nextInt(groupGeneratorBound) + groupLowerBound; 
-        int groupId = sm.getNextId();
-        CustomerGroup group = new CustomerGroup(groupId, groupSize, getTime());
+        CustomerGroup group = new CustomerGroup(sm.getNextId(), groupSize, getTime());
         
         //Log the group and print the arrival message
         sm.logGroup(group);

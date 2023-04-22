@@ -42,7 +42,7 @@ public class CollectItemsEvent extends Event {
         sm.collectItems(getTime(), group);
         
         // Schedule the PayEvent for the same customer group which is after 4 time units
-        PayEvent payEvent = new PayEvent(getTime() + 4, group);
-        s.schedule(payEvent);
+        PayEvent nextPayEvent = new PayEvent(getTime() + 4, group);
+        s.schedule(nextPayEvent);
     }
 }
