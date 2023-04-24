@@ -10,6 +10,8 @@ import java.io.*;
  * 
  *This class contains the main method that runs the simulation.
  * 
+ * Implemented phase6
+ * 
 */
 
 public class Assignment1V1 {
